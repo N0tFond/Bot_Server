@@ -23,7 +23,7 @@ Un bot Discord polyvalent offrant diverses fonctionnalités de modération et d'
 1. Clonez le repository
 
 ```bash
-git clone <votre-repo>
+git clone https://github.com/N0tFond/Bot_Server.git
 cd Bot_Server
 ```
 
