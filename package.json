@@ -1,0 +1,26 @@
+{
+  "name": "bot_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node -e \"console.clear();\" && node index.js"
+  },
+  "keywords": [
+    "utility",
+    "bot"
+  ],
+  "author": {
+    "name": "N0tFond",
+    "role": "Developper / Owner"
+  },
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "discord.js": "^14.19.2",
+    "dotenv": "^16.5.0",
+    "fs": "^0.0.1-security",
+    "moment": "^2.30.1"
+  }
+}
