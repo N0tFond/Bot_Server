@@ -11,7 +11,7 @@ module.exports = {
 
         try {
             const staffRole = interaction.guild.roles.cache.get(process.env.STAFF_ROLE);
-            const ignoredRoleIds = ["1367978086951424022", "1367978085881745448"];
+            const ignoredRoleIds = ["1367978086951424022", "1367978085881745448", "1367977944198418598", "1367978922645520508"];
 
             const members = await interaction.guild.members.fetch();
             const membersWithStaffRole = members.filter(member => member.roles.cache.has(staffRole.id))
