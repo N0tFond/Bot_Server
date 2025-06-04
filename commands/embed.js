@@ -40,7 +40,7 @@ module.exports = {
         const channel = interaction.options.getChannel('salon');
         const title = interaction.options.getString('titre');
         const description = interaction.options.getString('description');
-        const color = interaction.options.getString('couleur') || '#5E7381'; // Couleur par défaut
+        const color = interaction.options.getString('couleur') || '#5E7381';
         const imageUrl = interaction.options.getString('image');
 
         // Vérification que le salon est un salon textuel
@@ -51,33 +51,19 @@ module.exports = {
             });
         }
 
-        try {
-            const customEmbed = new EmbedBuilder()
-                .setColor(color.replace('#', ''))
-                .setTitle(title)
-                .setDescription(description)
-                .setFooter({
-                    text: `Embed créé par ${interaction.user.tag}`,
-                    iconURL: interaction.user.displayAvatarURL({ dynamic: true })
-                })
-                .setTimestamp();
+        const embed = new EmbedBuilder()
+            .setTitle(title)
+            .setDescription(description)
+            .setColor(color);
 
-            if (imageUrl) {
-                customEmbed.setImage(imageUrl);
-            }
-
-            await channel.send({ embeds: [customEmbed] });
-
-            await interaction.reply({
-                content: `${process.env.CHECK} ⟩ L'embed a été envoyé avec succès dans ${channel}.`,
-                ephemeral: true
-            });
-        } catch (error) {
-            console.error('Erreur lors de l\'envoi de l\'embed:', error);
-            await interaction.reply({
-                content: `${process.env.CROSS} ⟩ Une erreur est survenue lors de l'envoi de l'embed. Vérifiez que l'URL de l'image est valide si vous en avez fourni une.`,
-                ephemeral: true
-            });
+        if (imageUrl) {
+            embed.setImage(imageUrl);
         }
-    },
+
+        await channel.send({ embeds: [embed] });
+        return interaction.reply({
+            content: `${process.env.CHECK} ⟩ L'embed a été envoyé avec succès dans ${channel}`,
+            ephemeral: true
+        });
+    }
 };
