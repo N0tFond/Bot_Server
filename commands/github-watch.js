@@ -34,7 +34,7 @@ module.exports = {
                 .setTitle(`Activité GitHub de ${user.login}`)
                 .setURL(user.html_url)
                 .setThumbnail(user.avatar_url)
-                .setDescription(`Profil: ${user.name || user.login}\nBio: ${user.bio || 'Aucune bio'}`)
+                .setDescription(`Profil: ${user.name || user.login}\n`)
                 .addFields(
                     { name: 'Repositories publics', value: `${user.public_repos}`, inline: true },
                     { name: 'Followers', value: `${user.followers}`, inline: true },
