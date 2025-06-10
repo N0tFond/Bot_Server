@@ -1,12 +1,16 @@
-// ./modules/readyHandler.js
-
-const { PresenceUpdateStatus } = require('discord.js');
+const { PresenceUpdateStatus, ActivityType } = require('discord.js');
 
 const ReadyHandler = (client) => {
     client.once('ready', () => {
-        client.user.setPresence({ activities: [{ name: 'Developping a new services' }], status: PresenceUpdateStatus.DoNotDisturb });
+        client.user.setPresence({
+            activities: [{
+                name: 'Developing new services',
+                type: ActivityType.Playing
+            }],
+            status: PresenceUpdateStatus.DoNotDisturb
+        });
 
-        console.log(`⟩ Connecté en tant que ${client.user.username}`)
+        console.log(`⟩ Connecté en tant que ${client.user.username}`);
     });
 };
 
